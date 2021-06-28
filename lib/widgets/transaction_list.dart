@@ -11,9 +11,9 @@ class TransactionList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 300,
-      child: ListView(  //a column with scrollview 
-        children: transactions.map((tx) {
-          //tx is a random word for now. this is why use this.item
+      child: ListView.builder(
+        //a column with scrollview
+        itemBuilder: (ctx, index) {
           return Card(
             elevation: 5,
             child: Row(
@@ -25,18 +25,18 @@ class TransactionList extends StatelessWidget {
                   ),
                   decoration: BoxDecoration(
                     border: Border.all(
-                      color: Colors.purple,
+                      color: Theme.of(context).primaryColor,
                       width: 2,
                     ),
                   ),
                   padding: EdgeInsets.all(10),
                   child: Text(
-                    "\$${tx.amount}", //string interpolatin instead of tx.amount.toString()
+                    "\$${transactions[index].amount.toStringAsFixed(2)}", //string interpolatin instead of tx.amount.toString()
                     style: TextStyle(
                       fontWeight: FontWeight
                           .bold, //bold is a static label so we need notinstantiate them
                       fontSize: 20,
-                      color: Colors.purple,
+                      color:Theme.of(context).primaryColor,
                     ),
                   ),
                 ),
@@ -44,15 +44,15 @@ class TransactionList extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      tx.title,
+                      transactions[index].title,
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     Text(
-                      DateFormat.yMMMd()
-                          .format(tx.date), //DFateFormat(yyyyMMdd) also works
+                      DateFormat.yMMMd().format(transactions[index]
+                          .date), //DFateFormat(yyyyMMdd) also works
                       style: TextStyle(
                         color: Colors.grey,
                       ),
@@ -62,7 +62,9 @@ class TransactionList extends StatelessWidget {
               ],
             ),
           );
-        }).toList(), //transforming list of objects to list of wdiegts  //map takes a fucntion that gets executed on every element on the list
+        },
+        itemCount: transactions.length,
+        //transforming list of objects to list of wdiegts  //map takes a fucntion that gets executed on every element on the list
       ),
     );
   }
