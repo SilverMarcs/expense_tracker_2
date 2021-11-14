@@ -11,8 +11,12 @@ class ChartBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Text(
-            "\$${spendingAmount.toStringAsFixed(0)}"), //putting 0 here means no decimal places
+        Container(
+          height: 20,   //text on top of bar will always be 20. all aligned
+          child: FittedBox(
+            child: Text("\$${spendingAmount.toStringAsFixed(0)}"),
+          ),
+        ), //putting 0 here means no decimal places
         SizedBox(
           height: 4,
         ),
