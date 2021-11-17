@@ -42,25 +42,25 @@ class Chart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 6,
-      margin: EdgeInsets.all(20),
-      child: Padding(
-        padding: EdgeInsets.all(10),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: groupedTransactionValues.map((data) {
-            return Flexible(
-              fit: FlexFit.tight,
-              child: ChartBar(
-                  data["day"],
-                  data["amount"],
-                  totalSpending == 0.0
-                      ? 0.0
-                      : (data["amount"] as double) / totalSpending),
-            );
-          }).toList(), //if totalspending is 0.0 then pass 0.0 and 0.0 divided by 0 is np
+        elevation: 6,
+        margin: EdgeInsets.all(20),
+        child: Padding(
+          padding: EdgeInsets.all(10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: groupedTransactionValues.map((data) {
+              return Flexible(
+                fit: FlexFit.tight,
+                child: ChartBar(
+                    data["day"],
+                    data["amount"],
+                    totalSpending == 0.0
+                        ? 0.0
+                        : (data["amount"] as double) / totalSpending),
+              );
+            }).toList(), //if totalspending is 0.0 then pass 0.0 and 0.0 divided by 0 is np
+          ),
         ),
-      ),
     );
   }
 }
