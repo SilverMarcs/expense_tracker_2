@@ -10,11 +10,18 @@ import './widgets/chart.dart';
 import './models/transaction.dart';
 
 void main() {
-  // WidgetsFlutterBinding.ensureInitialized();
-  // SystemChrome.setPreferredOrientations([
-  //   DeviceOrientation.portraitUp,
-  //   DeviceOrientation.portraitDown,
-  // ]);
+  SystemChrome.setSystemUIOverlayStyle(
+   SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      systemNavigationBarColor: Colors.transparent,
+      systemNavigationBarDividerColor: Colors.transparent,
+      systemNavigationBarIconBrightness: Brightness.dark,
+      //color set to transperent or set your own color
+      // statusBarIconBrightness: Brightness.dark, 
+      //set brightness for icons, like dark background light icons
+   )
+);
+  
   runApp(MyApp());
 }
 
@@ -37,6 +44,7 @@ class MyApp extends StatelessWidget {
                 button: TextStyle(color: Colors.white),
               ),
           appBarTheme: AppBarTheme(
+            shadowColor: Colors.transparent,
             textTheme: ThemeData.light().textTheme.copyWith(
                   headline1: TextStyle(
                     fontFamily: 'OpenSans',
