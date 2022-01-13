@@ -11,17 +11,17 @@ import './models/transaction.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
-   SystemUiOverlayStyle(
+    SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
       systemNavigationBarColor: Colors.transparent,
       systemNavigationBarDividerColor: Colors.transparent,
       systemNavigationBarIconBrightness: Brightness.dark,
       //color set to transperent or set your own color
-      // statusBarIconBrightness: Brightness.dark, 
+      // statusBarIconBrightness: Brightness.dark,
       //set brightness for icons, like dark background light icons
-   )
-);
-  
+    ),
+  );
+
   runApp(MyApp());
 }
 
@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
                 button: TextStyle(color: Colors.white),
               ),
           appBarTheme: AppBarTheme(
-            shadowColor: Colors.transparent,
+            // shadowColor: Colors.transparent,
             textTheme: ThemeData.light().textTheme.copyWith(
                   headline1: TextStyle(
                     fontFamily: 'OpenSans',
@@ -178,7 +178,8 @@ class _MyHomePageState extends State<MyHomePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text("Show Chart", style: Theme.of(context).textTheme.headline1),
+                  Text("Show Chart",
+                      style: Theme.of(context).textTheme.headline1),
                   Switch.adaptive(
                     activeColor: Theme.of(context).accentColor,
                     value: _showChart,
