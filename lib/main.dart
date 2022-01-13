@@ -125,6 +125,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _deleteTransaction(String id) {
     setState(() {
+      // set sate automatically calls build method as it starts considering the app "dirty" now
       _userTransactions.removeWhere(
           (tx) => tx.id == id); // rem9oves when a certain conditon is met
     });
