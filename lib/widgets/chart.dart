@@ -57,7 +57,7 @@ class Chart extends StatelessWidget {
                 totalSpending == 0.0
                     ? 0.0
                     : (data["amount"] as double) / totalSpending,
-              ).,
+              ),
             );
           }).toList(), //if totalspending is 0.0 then pass 0.0 and 0.0 divided by 0 is np
         ),
